@@ -1,0 +1,23 @@
+
+    
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a href="{% url 'home' %}" class="navbar-brand">Tradexa</a>
+          <div class="d-flex">
+            {% if request.user.is_authenticated %}
+            <nav>
+            <button type="button" class="btn btn-warning">Hi {{user.username}}</button>   
+            <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+            <a href="{% url 'addpost' %}"><button type="button" class="btn btn-outline-info">Add Post</button></a>
+            </nav>
+            {% else %}
+            <nav>
+                <a class="p-2 text-dark" href="{% url 'register' %}"><button type="button" class="btn btn-outline-info">Register</button></a>
+                <a class="p-2 text-dark" href="{% url 'login' %}"><button type="button" class="btn btn-outline-info">Login</button></a>
+            </nav>
+            {% endif %}
+            
+          </div>
+        </div>
+      </nav>
