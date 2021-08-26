@@ -76,19 +76,20 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {},
+    'auth_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'auth.db.sqlite3',
     },
   
-    'users': {
+    'users_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  BASE_DIR /'accounts_data.sqlite3',
+        'NAME':  BASE_DIR /'users.db.sqlite3',
         
     },
-    'products': {
+    'products_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  BASE_DIR /'products_data.sqlite3',
+        'NAME':  BASE_DIR /'products.db.sqlite3',
         
         
     }
@@ -137,3 +138,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATABASE_ROUTERS = ['routers.db_routers.AuthRouter','routers.db_routers.Users','routers.db_routers.Products']

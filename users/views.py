@@ -61,7 +61,7 @@ def Register(request):
             user_obj.set_password(password)
             user_obj.save()
     
-            profile_obj = Profile.objects.create(user = user_obj,firstname=firstname,lastname=lastname,password=password ,email=email,username=username)
+            profile_obj = Profile.objects.create(firstname=firstname,lastname=lastname,password=password ,email=email,username=username)
             profile_obj.save()
             return redirect('/login/')
 
